@@ -1,19 +1,28 @@
 * {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 header {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  padding-top: 10px;
-  gap: 10px;
+  margin-bottom: 20px;
 }
 
-header i {
-  height: 40px;
-  width: 40px;
+header h1 {
+  margin-left: 10px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
 }
