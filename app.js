@@ -13,19 +13,38 @@ function addItem (e) {
   //prevent defaul submission
   e.preventDefault();
 
+  const newItem = itemInput.value;
+
   //Validate Input
   if (itemInput.value === '') {
     alert('Please add an item');
     return;
   };
 
-  console.log('Success!');
+  //create new list item
+  let li = document.createElement('li');
+  li.appendChild(document.createTextNode(newItem));
+  let newButton = createButton();
+  let newIcon = createIcon();
 
-  // let li = document.createElement('li');
-  // li.textContent = itemInput.value;
-  // li.className =
+  li.appendChild(newButton);
+  li.appendChild(newIcon);
+  console.log(li);
 
-  // itemList.appendChild(li);
+
+  itemList.appendChild(li);
+}
+
+function createButton () {
+  let button = document.createElement('button');
+  button.className = 'remove-item btn-link text-red';
+  return button;
+}
+
+function createIcon () {
+  let icon = document.createElement('icon');
+  icon.className = 'fa-solid fa-xmark';
+  return icon;
 }
 
 
