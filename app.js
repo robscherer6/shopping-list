@@ -3,11 +3,9 @@ const itemForm = document.getElementById('item-form');
 //create reference to input text
 let itemInput = document.getElementById('item-input');
 
-//create reference to addItem button
-//let addItem = document.querySelector('.btn');
-
 //create reference to item list
 let itemList = document.getElementById('item-list');
+
 
 function addItem (e) {
   //prevent defaul submission
@@ -49,9 +47,14 @@ function createIcon (classes) {
   return icon;
 }
 
+function removeItem(e) {
+  if (e.target.parentElement.classList.contains('remove-item')){
+    e.target.parentElement.parentElement.remove();
+  }
+}
+
 
 
 //Event Listeners
 itemForm.addEventListener('submit', addItem);
-//addItem.addEventListener('click', onSubmit)
-
+itemList.addEventListener('click', removeItem);
