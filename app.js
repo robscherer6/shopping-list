@@ -6,6 +6,8 @@ let itemInput = document.getElementById('item-input');
 //create reference to item list
 let itemList = document.getElementById('item-list');
 
+let clearBtn = document.getElementById('clear');
+
 
 function addItem (e) {
   //prevent defaul submission
@@ -53,8 +55,17 @@ function removeItem(e) {
   }
 }
 
+function clearItems () {
+  itemList.innerHTML = '';
+  // while (itemList.firstChild) {
+  //   itemList.removeChild(itemList.firstChild);
+  // }
+  // itemList.remove();
+}
+
 
 
 //Event Listeners
 itemForm.addEventListener('submit', addItem);
 itemList.addEventListener('click', removeItem);
+clearBtn.addEventListener('click', clearItems)
