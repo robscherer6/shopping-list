@@ -25,19 +25,21 @@ function addItem (e) {
   let li = document.createElement('li');
   li.appendChild(document.createTextNode(newItem));
   let newButton = createButton('remove-item btn-link text-red');
-  let newIcon = createIcon('fa-solid fa-xmark');
 
   li.appendChild(newButton);
-  newButton.appendChild(newIcon);
   console.log(li);
 
-
   itemList.appendChild(li);
+
+  //clear item input so blank for next item
+  itemInput.value = '';
 }
 
 function createButton (classes) {
   let button = document.createElement('button');
   button.className = classes;
+  let newIcon = createIcon('fa-solid fa-xmark');
+  button.appendChild(newIcon);
   return button;
 }
 
