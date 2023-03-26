@@ -24,26 +24,26 @@ function addItem (e) {
   //create new list item
   let li = document.createElement('li');
   li.appendChild(document.createTextNode(newItem));
-  let newButton = createButton();
-  let newIcon = createIcon();
+  let newButton = createButton('remove-item btn-link text-red');
+  let newIcon = createIcon('fa-solid fa-xmark');
 
   li.appendChild(newButton);
-  li.appendChild(newIcon);
+  newButton.appendChild(newIcon);
   console.log(li);
 
 
   itemList.appendChild(li);
 }
 
-function createButton () {
+function createButton (classes) {
   let button = document.createElement('button');
-  button.className = 'remove-item btn-link text-red';
+  button.className = classes;
   return button;
 }
 
-function createIcon () {
+function createIcon (classes) {
   let icon = document.createElement('icon');
-  icon.className = 'fa-solid fa-xmark';
+  icon.className = classes;
   return icon;
 }
 
