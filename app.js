@@ -1,12 +1,9 @@
-const itemForm = document.getElementById('item-form');
-
-//create reference to input text
+let itemForm = document.getElementById('item-form');
 let itemInput = document.getElementById('item-input');
-
-//create reference to item list
 let itemList = document.getElementById('item-list');
-
 let clearBtn = document.getElementById('clear');
+let itemFilter = document.getElementById('filter');
+let items = itemList.querySelectorAll('li');
 
 
 function addItem (e) {
@@ -63,7 +60,13 @@ function clearItems () {
   // itemList.remove();
 }
 
+function checkUI () {
+  if (items.length === 0) {
 
+  } else {
+
+  }
+}
 
 //Event Listeners
 itemForm.addEventListener('submit', addItem);
