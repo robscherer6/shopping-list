@@ -104,6 +104,11 @@ function removeItem(item) {
   }
 }
 
+// function removeItemFromStorage (item) {
+//   const itemsFromStorage =  getItemsFromStorage();
+
+// }
+
 function clearItems () {
   itemList.innerHTML = '';
   checkUI();
