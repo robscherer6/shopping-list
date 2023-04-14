@@ -3,7 +3,7 @@ let itemInput = document.getElementById('item-input');
 let itemList = document.getElementById('item-list');
 let clearBtn = document.getElementById('clear');
 let itemFilter = document.getElementById('filter');
-let items = itemList.querySelectorAll('li');
+//let items = itemList.querySelectorAll('li');
 
 function onAddItemSubmit (e) {
   //prevent defaul submission
@@ -17,8 +17,10 @@ function onAddItemSubmit (e) {
     return;
   };
 
+  addItemToDOM(newItem);
+
   checkUI();
-  
+
   //clear item input so blank for next item
   itemInput.value = '';
 }
@@ -36,6 +38,16 @@ function addItemToDOM (item) {
   itemList.appendChild(li);
 }
 
+function addItemToStorage () {
+  let itemsFromStorage;
+
+  if (localStorage.getItem('items') === null) {
+    itemsFromStorage = [];
+  } else {
+
+  }
+}
+
 function createButton (classes) {
   let button = document.createElement('button');
   button.className = classes;
@@ -50,37 +62,23 @@ function createIcon (classes) {
   return icon;
 }
 
-
-
-
-
-function onClickItem (e) {
+function removeItem(e) {
   if (e.target.parentElement.classList.contains('remove-item')) {
-    removeItem(e.target.parentElement.parentElement);
-    removeItem(e.target.parentElement.parentElement);
+    if (confirm('Are you sure?')) {
+      e.target.parentElement.parentElement.remove();
+    }
   }
-}
 
-function removeItem(item) {
-  if (confirm('Are you sure?')) {
-    // Remove item from DOM
-    item.remove();
-
-    // Remove item from storage
-    removeItemFromStorage(item.textContent);
-    checkUI();
-  }
+  checkUI();
 }
 
 
 function clearItems () {
-  itemList.innerHTML = '';
+  while (itemList.firstChild) {
+    itemList.removeChild(itemList.firstChild);
+  }
 
   checkUI();
-  // while (itemList.firstChild) {
-  //   itemList.removeChild(itemList.firstChild);
-  // }
-  // itemList.remove();
 
 }
 
