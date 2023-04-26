@@ -150,7 +150,6 @@ function removeItemFromStorage(item) {
   localStorage.setItem('items', JSON.stringify(itemsFromStorage));
 }
 
-
 function clearItems () {
   while (itemList.firstChild) {
     itemList.removeChild(itemList.firstChild);
